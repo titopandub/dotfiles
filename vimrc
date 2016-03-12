@@ -1,7 +1,7 @@
 execute pathogen#infect()
 syntax enable
 set t_Co=256
-colorscheme Tomorrow-Night
+colorscheme grb256
 syntax on
 set nocompatible                " choose no compatibility with legacy vi
 set encoding=utf-8
@@ -26,15 +26,18 @@ set cpoptions+=$
 set guifont=Source\ Code\ Pro\ for\ Powerline:h14 "make sure to escape the spaces in the name properly
 
 let mapleader = ","
-au FocusLost * :set number
-au FocusGained * :set relativenumber
-autocmd InsertEnter * :set number
-autocmd InsertLeave * :set relativenumber
+set number
+set relativenumber
+set cursorline
+set cursorcolumn
 
 set list listchars=tab:»·,trail:·
 set splitbelow
 set splitright
 set clipboard=unnamed
+
+"" Autocmd
+autocmd BufRead,BufNewFile  *.md setlocal wrap linebreak
 
 "" Vim mapping
 """ Re-indent current file
@@ -47,6 +50,9 @@ nnoremap <C-H> <C-W><C-H>
 " Press Space to turn off highlighting and clear any message already
 " displayed.
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+
+" bind K to grep word under cursor
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 "" Plugins setting
 "" dash.vim
@@ -75,3 +81,25 @@ map <leader>rl :VimuxRunLastCommand
 " Interrupt any command running in the runner pane
 map <leader>rs :VimuxInterruptRunner
 map <leader>rta :call VimuxRunCommand("clear; rake test:all:db")<CR>
+
+" RSpec.vim mappings
+let g:rspec_command = "!bin/rspec {spec}"
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
+
+" Elm mappings
+nnoremap <leader>el :ElmEvalLine<CR>
+vnoremap <leader>es :<C-u>ElmEvalSelection<CR>
+nnoremap <leader>em :ElmMakeCurrentFile<CR>
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+set runtimepath^=~/.vim/bundle/ag
+
+" add jbuilder syntax highlighting
+au BufNewFile,BufRead *.json.jbuilder set ft=ruby
