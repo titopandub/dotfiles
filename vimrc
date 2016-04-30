@@ -43,11 +43,13 @@ autocmd BufRead,BufNewFile  *.md setlocal wrap linebreak
 "" Vim mapping
 """ Re-indent current file
 map <F7> mzgg=G`z<CR>
+
 """ Splitting
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
 " Press Space to turn off highlighting and clear any message already
 " displayed.
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
@@ -58,10 +60,15 @@ nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 "" Plugins setting
 "" dash.vim
 nmap <silent> <leader>d <Plug>DashSearch
+
 "" vim-airline
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+
+"" Ctrl P
 set runtimepath^=~/.vim/bundle/ctrlp.vim
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+
 "" NERDTree
 map <C-n> :NERDTreeToggle<CR>
 
