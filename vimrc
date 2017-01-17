@@ -101,6 +101,8 @@ map <Leader>a :call RunAllSpecs()<CR>
 nnoremap <leader>el :ElmEvalLine<CR>
 vnoremap <leader>es :<C-u>ElmEvalSelection<CR>
 nnoremap <leader>em :ElmMakeCurrentFile<CR>
+let g:elm_detailed_complete = 1
+let g:elm_format_autosave = 1
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
