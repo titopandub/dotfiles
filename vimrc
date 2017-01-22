@@ -113,3 +113,6 @@ set runtimepath^=~/.vim/bundle/ag
 
 " add jbuilder syntax highlighting
 au BufNewFile,BufRead *.json.jbuilder set ft=ruby
+
+" add elm syntax highlighting
+au FileType elm setlocal shiftwidth=4 tabstop=4

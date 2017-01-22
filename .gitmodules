@@ -46,3 +46,6 @@
 [submodule "vim/bundle/elm-vim"]
 	path = vim/bundle/elm-vim
 	url = https://github.com/ElmCast/elm-vim
+[submodule "git-quick-stats"]
+	path = git-quick-stats
+	url = https://github.com/arzzen/git-quick-stats.git
