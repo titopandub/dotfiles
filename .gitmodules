@@ -49,3 +49,6 @@
 [submodule "git-quick-stats"]
 	path = git-quick-stats
 	url = https://github.com/arzzen/git-quick-stats.git
+[submodule "vim/bundle/vim-eunuch"]
+	path = vim/bundle/vim-eunuch
+	url = git://github.com/tpope/vim-eunuch.git
